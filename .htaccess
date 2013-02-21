@@ -1,0 +1,14 @@
+#Tiny Rest htaccess file
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} ^(.*)$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule (.*) index.php?url=%1 [L,QSA]
+
+ServerSignature Off
+
+#Stop directory browsers
+DirectoryIndex index.php
+Options All -Indexes
